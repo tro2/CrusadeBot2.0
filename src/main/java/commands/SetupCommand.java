@@ -49,6 +49,8 @@ public class SetupCommand extends Command {
 
         Message initial = message.getChannel().sendMessageEmbeds(embedBuilder.build()).setActionRow(buttonListLower).complete();
 
+        System.out.println("test");
+
         CrusadeBot.waiter.waitForEvent(GuildMessageReceivedEvent.class, m ->
                 m.getChannel().equals(initial.getChannel()) &&
                 m.getMember().equals(member) &&
