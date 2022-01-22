@@ -7,7 +7,7 @@ public class ShutdownCommand extends Command {
 
     public ShutdownCommand() {
         this.aliases = new String[] {"shutdown"};
-        this.minRole = "botDaddy";
+        this.minRoleId = "botDaddy";
         this.guildOnly = true;
     }
 

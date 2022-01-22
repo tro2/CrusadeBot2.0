@@ -1,7 +1,11 @@
 package setup;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ConfigCommandsDatabase {
@@ -43,20 +47,23 @@ public class ConfigCommandsDatabase {
     }
 
     //Use only when you know command is real
-    public static boolean getCommandStatus(String name, String guildId) {
-        String sql = "SELECT " + name + " from configCommands WHERE guildId = " + guildId;
+    public static JSONObject getCommandData(String columnName, String guildId) {
+        String sql = "SELECT " + columnName + " from configCommands WHERE guildId = " + guildId;
 
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:CrusadeBot.db");
              Statement statement = conn.createStatement()) {
 
             ResultSet resultSet = statement.executeQuery(sql);
 
-            return resultSet.getBoolean(name);
-        } catch (SQLException e) {
+            JSONParser parser =  new JSONParser();
+
+            return (JSONObject) parser.parse(resultSet.getString(columnName));
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return false;
+        return null;
     }
 
     public static boolean checkCommandColumn(String name) {
@@ -99,7 +106,13 @@ public class ConfigCommandsDatabase {
     }
 
     public static void addCommandColumn(String name) {
-        String sql = "ALTER TABLE configCommands ADD COLUMN `" + name + "` BOOLEAN DEFAULT false NOT NULL";
+        JSONObject init = new JSONObject();
+
+        init.put("isEnabled", false);
+        init.put("minRoleId", -1);
+        init.put("roleExceptions", new ArrayList<>());
+
+        String sql = "ALTER TABLE configCommands ADD COLUMN `" + name + "` STRING DEFAULT `" + init.toJSONString() + "` NOT NULL";
 
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:CrusadeBot.db");
              Statement statement = conn.createStatement()) {

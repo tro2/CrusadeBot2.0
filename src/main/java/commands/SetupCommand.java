@@ -18,7 +18,7 @@ public class SetupCommand extends Command {
 
     public SetupCommand() {
         this.aliases = new String[] {"setup"};
-        this.minRole = "moderator";
+        this.minRoleId = "moderator";
         this.guildOnly = true;
     }
 
@@ -48,8 +48,6 @@ public class SetupCommand extends Command {
         );
 
         Message initial = message.getChannel().sendMessageEmbeds(embedBuilder.build()).setActionRow(buttonListLower).complete();
-
-        System.out.println("test");
 
         CrusadeBot.waiter.waitForEvent(GuildMessageReceivedEvent.class, m ->
                 m.getChannel().equals(initial.getChannel()) &&
@@ -385,10 +383,10 @@ public class SetupCommand extends Command {
                 "Select command to change, 'all' to set all\n" +
                 "```\n";
 
-        for(int i = 0; i < commandNames.size(); i++) {
+        /*for(int i = 0; i < commandNames.size(); i++) {
             desc = desc.concat((i + 1) + " - " + commandNames.get(i) + ": " + ConfigCommandsDatabase.getCommandStatus(commandNames.get(i), initial.getGuild().getId()) + "\n");
             answers.add(String.valueOf(i+1));
-        }
+        }*/
 
         desc = desc.concat("```");
 
@@ -423,7 +421,7 @@ public class SetupCommand extends Command {
         embedBuilder.setDescription(
                 "Enter new command status\n" +
                 "```\n" +
-                commandName + ": " + ConfigCommandsDatabase.getCommandStatus(commandName, initial.getGuild().getId()) +
+                /*commandName + ": " + ConfigCommandsDatabase.getCommandStatus(commandName, initial.getGuild().getId()) +*/
                 "```"
         );
 
@@ -448,7 +446,7 @@ public class SetupCommand extends Command {
             embedBuilder.setDescription(
                     "Changes made\n" +
                     "```\n" +
-                    commandName + " -> " + ConfigCommandsDatabase.getCommandStatus(commandName, initial.getGuild().getId()) + "\n" +
+                    /*commandName + " -> " + ConfigCommandsDatabase.getCommandStatus(commandName, initial.getGuild().getId()) + "\n" +*/
                     "```");
             embedBuilder.setFooter("");
             embedBuilder.setTimestamp(new Date().toInstant());

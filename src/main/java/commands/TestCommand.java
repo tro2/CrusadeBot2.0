@@ -1,28 +1,20 @@
 package commands;
 
-import com.jagrosh.jdautilities.menu.ButtonMenu;
 import main.CrusadeBot;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.entities.MessageReaction;
 import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.Button;
-import net.dv8tion.jda.api.interactions.components.ButtonStyle;
-import net.dv8tion.jda.api.interactions.components.Component;
 
-import javax.swing.*;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
-import java.util.function.Consumer;
-import java.util.stream.Collectors;
 
 public class TestCommand extends Command {
 
     public TestCommand() {
         this.aliases = new String[]{"test"};
-        this.minRole = "botDaddy";
+        this.minRoleId = "botDaddy";
         this.guildOnly = true;
     }
 

@@ -5,13 +5,12 @@ import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public abstract class Command {
 
     protected String[] aliases;
-    public String minRole = "botDaddy";
+    public String minRoleId = "-1";
     public List<String> exceptionRoles = new ArrayList<>();
     public boolean guildOnly = false;
 

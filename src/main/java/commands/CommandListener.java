@@ -46,12 +46,6 @@ public class CommandListener extends ListenerAdapter {
 
         Command command;
         if ((command = commandManager.getCommand(alias)) != null) {
-            if (event.getAuthor().getId().equals(config.ownerId)) {
-                command.execute(event.getMessage(), event.getMember(), alias, args);
-
-                return;
-            }
-
             try {
                 if (Permissions.hasPermission(event.getMember(), command)) { //add other command checks here
                     command.execute(event.getMessage(), event.getMember(), alias, args);
