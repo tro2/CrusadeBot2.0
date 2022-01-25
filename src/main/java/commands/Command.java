@@ -10,8 +10,6 @@ import java.util.List;
 public abstract class Command {
 
     protected String[] aliases;
-    public String minRoleId = "-1";
-    public List<String> exceptionRoles = new ArrayList<>();
     public boolean guildOnly = false;
 
     public abstract void execute(Message message, Member member, String aliases, String[] args);

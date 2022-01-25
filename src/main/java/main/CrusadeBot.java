@@ -5,6 +5,7 @@ import commands.*;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 
@@ -89,6 +90,7 @@ public class CrusadeBot {
         commandManager.add(new TestCommand());
         commandManager.add(new ShutdownCommand());
         commandManager.add(new SetupCommand());
+        commandManager.add(new HeadcountCommand());
 
     }
 

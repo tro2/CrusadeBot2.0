@@ -66,6 +66,20 @@ public class ConfigCommandsDatabase {
         return null;
     }
 
+    public static boolean setCommandData(String columnName, JSONObject object, String guildId) {
+        String sql = "UPDATE configCommands SET " + columnName + "= '" + object.toJSONString() + "' WHERE guildId = " + guildId;
+
+        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:CrusadeBot.db");
+             Statement statement = conn.createStatement()) {
+
+            return statement.executeUpdate(sql) > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
     public static boolean checkCommandColumn(String name) {
         String sql = "SELECT * from configCommands";
 

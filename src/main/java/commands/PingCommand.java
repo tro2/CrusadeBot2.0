@@ -13,7 +13,6 @@ public class PingCommand extends Command {
 
     public PingCommand() {
         this.aliases = new String[] {"ping"};
-        this.minRoleId = "almostRaidLeader";
     }
 
     @Override
