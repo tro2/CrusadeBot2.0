@@ -45,4 +45,4 @@ Contents of folder:
 ## How to Run
 
 Run the .bat file included (if first time running, make sure to update config.json with the proper bot token and owner id)
-If config isn't there, it will be auto-generated, but the 
+If config isn't there, it will be auto-generated, but the bot will not start until it has been updated with a bot token and owner id
