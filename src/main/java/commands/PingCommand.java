@@ -16,7 +16,7 @@ public class PingCommand extends Command {
     }
 
     @Override
-    public void execute(Message message, Member member, String aliases, String[] args) {
+    public void execute(Message message, Member member, String alias, String[] args) {
         Duration duration = Duration.between(new Date(CrusadeBot.timeStarted).toInstant(), new Date(System.currentTimeMillis()).toInstant());
 
         long days = duration.toDays();

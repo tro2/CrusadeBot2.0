@@ -28,7 +28,7 @@ public class SetupCommand extends Command {
     }
 
     @Override
-    public void execute(Message message, Member member, String aliases, String[] args) {
+    public void execute(Message message, Member member, String alias, String[] args) {
         EmbedBuilder embedBuilder = new EmbedBuilder();
         List<String> answers = Arrays.asList("prefix", "channelIds", "commands");
         List<Button> buttonList;

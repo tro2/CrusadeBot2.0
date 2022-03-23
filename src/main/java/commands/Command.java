@@ -12,7 +12,7 @@ public abstract class Command {
     protected String[] aliases;
     public boolean guildOnly = false;
 
-    public abstract void execute(Message message, Member member, String aliases, String[] args);
+    public abstract void execute(Message message, Member member, String alias, String[] args);
 
     public MessageEmbed getHelpEmbed() {
         return null;

@@ -25,7 +25,7 @@ public class HeadcountCommand extends Command {
     }
 
     @Override
-    public void execute(Message message, Member member, String aliases, String[] args) {
+    public void execute(Message message, Member member, String alias, String[] args) {
         if (args.length == 0) {
             message.reply("You need some arguments to go with that command").queue();
             return;

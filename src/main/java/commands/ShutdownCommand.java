@@ -11,7 +11,7 @@ public class ShutdownCommand extends Command {
     }
 
     @Override
-    public void execute(Message message, Member member, String aliases, String[] args) {
+    public void execute(Message message, Member member, String alias, String[] args) {
         message.getChannel().sendMessage("Bot shutting down").complete();
 
         System.exit(0);
